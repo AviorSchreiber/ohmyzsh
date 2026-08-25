@@ -1,4 +1,5 @@
 HISTFILE=$HOME/.zsh_history
+alias setup-new-pc="$HOME/.oh-my-zsh/custom/scripts/setup-new-pc/setup-new-pc.sh"
 ZSH_THEME="bira"
 sshvpn() {
   if [ -z $1 ]; then

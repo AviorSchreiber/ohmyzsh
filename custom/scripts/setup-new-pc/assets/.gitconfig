@@ -1,0 +1,154 @@
+[credential "https://git-codecommit.eu-west-1.amazonaws.com/v1/repos/portfolio-handler-repo"]
+helper = !aws --profile sf-56-deploy --region us-west-1 codecommit credential-helper $@
+UseHttpPath = true
+[credential "https://git-codecommit.eu-west-1.amazonaws.com/v1/repos/allcloud-k8s-eaas-avior-apps"]
+helper = !aws --profile sf-24-eks --region us-west-1 codecommit credential-helper $@
+UseHttpPath = true
+[credential "https://git-codecommit.eu-west-1.amazonaws.com/v1/repos/allcloud-safe-access-platform-FrontEnd"]
+helper = !aws --profile sf-fsi-frontend-app1 --region us-west-1 codecommit credential-helper $@
+UseHttpPath = true
+[credential "https://git-codecommit.eu-west-1.amazonaws.com/v1/repos/portfolio-sharing-repo"]
+helper = !aws --profile sf-56-deploy --region us-west-1 codecommit credential-helper $@
+UseHttpPath = true
+[credential "https://git-codecommit.eu-west-1.amazonaws.com/v1/repos/alcd-lz-stack-sets-templates"]
+helper = !aws --profile nglz-fsi-non-prod --region us-west-1 codecommit credential-helper $@
+UseHttpPath = true
+[credential "https://git-codecommit.eu-west-1.amazonaws.com/v1/repos/core-network-codecommit-repo"]
+helper = !aws --profile sf-fsi-network-fesn-non-prod --region us-west-1 codecommit credential-helper $@
+UseHttpPath = true
+# [credential "https://git-codecommit.eu-west-1.amazonaws.com/v1/repos/allcloud-blueprint-collection-enterprise"]
+# 	helper = !aws --profile sf-fsi-network-fesn-non-prod --region us-west-1 codecommit credential-helper $@
+# 	UseHttpPath = true
+#[credential "https://git-codecommit.eu-west-1.amazonaws.com/v1/repos/alcd-lz-stack-sets-templates"]
+#	helper = !aws --profile nglz-fsi-prod --region us-west-1 codecommit credential-helper $@
+#	UseHttpPath = true
+[credential "https://git-codecommit.us-gov-west-1.amazonaws.com/v1/repos/alcd-lz-stack-sets-templates"]
+helper = !aws --profile g-cel --region us-gov-west-1 codecommit credential-helper $@
+UseHttpPath = true
+[credential "https://git-codecommit.us-east-1.amazonaws.com/v1/repos/alcd-lz-stack-sets-templates"]
+helper = !aws --profile sf-23 --region us-east-1 codecommit credential-helper $@
+UseHttpPath = true
+[user]
+email = avior.schreiber@allcloud.io
+name = avior
+[core]
+excludesfile = /Users/avior/.gitignore_global
+compression = 1
+autocrlf = input
+
+[submodule]
+  recurse = true
+
+[difftool "sourcetree"]
+cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+path =
+[mergetool "sourcetree"]
+cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+trustExitCode = true
+
+[branch]
+autosetuprebase = always
+
+[push]
+autoSetupRemote = true
+
+[rebase]
+autoStash = true
+
+[alias]
+s = status
+l = log --all --oneline --graph -10
+l20 = log --all --oneline --graph -20
+l30 = log --all --oneline --graph -30
+amnd = commit --amend --message
+amnde = commit --amend
+a = add
+aa = add --all
+c = commit --message
+cn = commit --no-verify --message
+ce = commit
+cwip = !sh -c 'git commit --message wip'
+cwipn = !sh -c 'git commit --message wip --no-verify'
+cinit = commit --message 'Initial commit'
+cbugfix = commit --message bugfix
+co = checkout
+cod = checkout develop
+com = checkout master
+cob = checkout -b
+cp = cherry-pick
+m = merge
+md = merge develop
+mm = merge master
+mod = merge origin/develop
+mom = merge origin/master
+re = rebase
+red = rebase develop
+rem = rebase master
+rs = reset --soft
+rs1 = reset --soft HEAD~1
+rs2 = reset --soft HEAD~2
+rs3 = reset --soft HEAD~3
+rs4 = reset --soft HEAD~4
+rs5 = reset --soft HEAD~5
+rsd = reset --soft develop
+rsm = reset --soft master
+rh = reset --hard
+rh1 = reset --hard HEAD~1
+rh2 = reset --hard HEAD~2
+rh3 = reset --hard HEAD~3
+rh4 = reset --hard HEAD~4
+rh5 = reset --hard HEAD~5
+rhd = reset --hard develop
+rhm = reset --hard master
+d = diff
+dh = diff HEAD
+d1 = diff HEAD~1..HEAD
+d2 = diff HEAD~2..HEAD
+d3 = diff HEAD~3..HEAD
+d4 = diff HEAD~4..HEAD
+d5 = diff HEAD~5..HEAD
+dt = difftool
+dt1 = difftool HEAD~1..HEAD
+dt2 = difftool HEAD~2..HEAD
+dt3 = difftool HEAD~3..HEAD
+dt4 = difftool HEAD~4..HEAD
+dt5 = difftool HEAD~5..HEAD
+d1no = diff HEAD~1..HEAD --name-only
+d2no = diff HEAD~2..HEAD --name-only
+d3no = diff HEAD~3..HEAD --name-only
+d4no = diff HEAD~4..HEAD --name-only
+d5no = diff HEAD~5..HEAD --name-only
+b = branch
+t = tag
+rmt = tag --delete
+rmo = push origin --delete
+rmb = branch --delete
+st = stash
+stm = stash push --message
+stp = stash pop
+stp0 = stash pop 0
+stp1 = stash pop 1
+stp2 = stash pop 2
+stp3 = stash pop 3
+stp4 = stash pop 4
+stl = stash list
+swip = !sh -c 'git reset --soft HEAD~2 && git commit --message wip --no-verify'
+swip2 = !sh -c 'git reset --soft HEAD~2 && git commit --message wip --no-verify'
+swip3 = !sh -c 'git reset --soft HEAD~3 && git commit --message wip --no-verify'
+swip4 = !sh -c 'git reset --soft HEAD~4 && git commit --message wip --no-verify'
+swip5 = !sh -c 'git reset --soft HEAD~5 && git commit --message wip --no-verify'
+swipd = !sh -c 'git reset --soft develop && git commit --message wip --no-verify'
+swipm = !sh -c 'git reset --soft master && git commit --message wip --no-verify'
+origin = remote add origin
+remotes = remote --verbose
+up = push --set-upstream origin
+pullall = !git pull && git submodule update --remote --rebase
+
+[filter "lfs"]
+clean = git-lfs clean -- %f
+smudge = git-lfs smudge -- %f
+process = git-lfs filter-process
+required = true
+
+[gc]
+auto = 0
