@@ -1,4 +1,5 @@
 HISTFILE=$HOME/.zsh_history
+ZSH_THEME="bira"
 sshvpn() {
   if [ -z $1 ]; then
     echo -e "\033[0;31mMissing host argumant \n\033[0mfor example:\nsshvpn 192.168.0.1 <port Number>"
